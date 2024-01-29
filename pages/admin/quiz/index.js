@@ -136,7 +136,10 @@ const Admin = () => {
         setCategories([...categories, result]); // Update categories state with the new category
         setShowModal(false);
         setNewCategory({ name: '', description: '' }); // Resetting the form fields
-        window.location.reload(); // Reload the page after successfully saving the category
+        // if (typeof window !== 'undefined') {
+        //   // Code that depends on the browser's window object
+        //   window.location.reload();
+        // }
       } else {
         console.log("Failed to save category");
       }
