@@ -6,8 +6,15 @@ import { TailSpin } from "react-loader-spinner";
 
 const Edit = () => {
   const router = useRouter();
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');
+  let urlParams;
+  if (typeof window !== 'undefined') {
+    // Code that depends on the browser's window object
+    urlParams = new URLSearchParams(window.location.search);
+  }
+  let id = '';
+  if (urlParams) {
+    id = urlParams.get('id');
+  }
   const [quizData, setQuizData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
